@@ -1,142 +1,328 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Manan Singh Dugtal - AI/ML Portfolio</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-</head>
-<body>
+    <title>Manan Singh Dugtal | AI & Machine Learning</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
 
-    <header id="home">
-        <nav>
-            <h1>Manan Singh Dugtal</h1>
-            <ul>
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#education">Education</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
+    <!-- Custom CSS and Tailwind Config -->
+    <style>
+        /* Custom styles for animations and theme */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0f172a; /* Slate 900 */
+            color: #cbd5e1; /* Slate 300 */
+        }
+
+        .section {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .gradient-text {
+            background: linear-gradient(to right, #38bdf8, #818cf8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .glass-effect {
+            background: rgba(30, 41, 59, 0.5); /* Slate 800 with 50% opacity */
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(51, 65, 85, 0.3); /* Slate 700 with 30% opacity */
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0f172a; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #334155;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #475569;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header & Navigation -->
+    <header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 glass-effect">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#hero" class="text-xl font-bold tracking-wider text-slate-200">
+                MANAN
+            </a>
+            <nav class="hidden md:flex space-x-8">
+                <a href="#about" class="text-slate-400 hover:text-sky-400 transition-colors">About</a>
+                <a href="#experience" class="text-slate-400 hover:text-sky-400 transition-colors">Experience</a>
+                <a href="#skills" class="text-slate-400 hover:text-sky-400 transition-colors">Skills</a>
+                <a href="#education" class="text-slate-400 hover:text-sky-400 transition-colors">Education</a>
+                <a href="#contact" class="text-slate-400 hover:text-sky-400 transition-colors">Contact</a>
+            </nav>
+            <button id="mobile-menu-button" class="md:hidden text-slate-300">
+                <i data-lucide="menu"></i>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4">
+            <a href="#about" class="block py-2 text-slate-400 hover:text-sky-400 transition-colors">About</a>
+            <a href="#experience" class="block py-2 text-slate-400 hover:text-sky-400 transition-colors">Experience</a>
+            <a href="#skills" class="block py-2 text-slate-400 hover:text-sky-400 transition-colors">Skills</a>
+            <a href="#education" class="block py-2 text-slate-400 hover:text-sky-400 transition-colors">Education</a>
+            <a href="#contact" class="block py-2 text-slate-400 hover:text-sky-400 transition-colors">Contact</a>
+        </div>
     </header>
 
-    <section id="about" class="hero-section">
-        <div class="hero-content">
-            <img src="manan.jpg" alt="Manan Singh Dugtal Profile" class="profile-img">
-            <div class="text-content">
-                <h2>Aspiring Technology Professional</h2>
-                <p class="tagline">
-                    Aspiring technology professional with a focus on **Artificial Intelligence** and **Machine Learning**, currently pursuing a Bachelor of Technology at Netaji Subhas University of Technology (NSUT).
+    <main class="container mx-auto px-6 pt-24 md:pt-32">
+
+        <!-- Hero Section -->
+        <section id="hero" class="min-h-[80vh] flex flex-col-reverse md:flex-row items-center justify-center text-center md:text-left gap-12 section">
+            <div class="md:w-3/5">
+                <h1 class="text-4xl md:text-6xl font-extrabold text-slate-100 leading-tight">
+                    Manan Singh Dugtal
+                </h1>
+                <h2 class="text-2xl md:text-3xl font-semibold mt-2 mb-6 gradient-text">
+                    AI & Machine Learning Engineer
+                </h2>
+                <p class="text-lg text-slate-400 max-w-2xl mx-auto md:mx-0">
+                    Aspiring technology professional with a focus on Artificial Intelligence and Machine Learning, currently pursuing a Bachelor of Technology. Passionate about leveraging AI and ML to solve real-world problems.
                 </p>
-                <p class="profile-details">
-                    Committed to understanding the impact of technology on future developments while continuously expanding knowledge and skills in AI and ML.
-                </p>
-                <div class="contact-info">
-                    <p><i class="fas fa-map-marker-alt"></i> Delhi, India</p>
-                    <p><i class="fas fa-envelope"></i> <a href="mailto:manandugtal@gmail.com">manandugtal@gmail.com</a></p>
-                    <p><i class="fas fa-phone"></i> 8800240806</p>
-                    <p><i class="fab fa-linkedin"></i> <a href="#" target="_blank">LinkedIn</a></p>
+                <div class="mt-8 flex justify-center md:justify-start gap-4">
+                    <a href="#contact" class="bg-sky-500 hover:bg-sky-600 text-white font-semibold py-3 px-6 rounded-lg transition-transform transform hover:scale-105 shadow-lg shadow-sky-500/20">Get In Touch</a>
+                    <a href="https://www.linkedin.com" target="_blank" class="bg-slate-700 hover:bg-slate-600 text-slate-200 font-semibold py-3 px-6 rounded-lg transition-transform transform hover:scale-105">
+                        View LinkedIn
+                    </a>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <hr>
-
-    <section id="skills" class="section">
-        <h2 class="section-title">Technical & Soft Skills</h2>
-        <div class="skills-container">
-            <h3>Technical</h3>
-            <div class="skill-list">
-                <span>Machine Learning</span>
-                <span>Artificial Intelligence</span>
-                <span>Generative AI</span>
-                <span>Data Visualization</span>
-                <span>Cybersecurity Basics</span>
-                <span>Technical Problem Solving</span>
+            <div class="md:w-2/5 flex justify-center">
+                <div class="relative w-64 h-64 md:w-80 md:h-80">
+                    <div class="absolute inset-0 bg-gradient-to-br from-sky-500 to-indigo-500 rounded-full blur-2xl opacity-60"></div>
+                    <img src="manan.jpg" alt="Manan Singh Dugtal" class="relative w-full h-full object-cover rounded-full border-4 border-slate-700 shadow-2xl">
+                </div>
             </div>
-            <hr>
-            <h3>Soft Skills</h3>
-            <div class="skill-list">
-                <span>Communication Skills</span>
-                <span>Team Collaboration</span>
-                <span>Research</span>
-                <span>Critical Thinking</span>
+        </section>
+
+        <!-- About Me Section -->
+        <section id="about" class="py-24 section">
+            <h2 class="text-3xl font-bold text-center mb-12 text-slate-200">
+                <span class="gradient-text">About Me</span>
+            </h2>
+            <div class="max-w-4xl mx-auto glass-effect p-8 rounded-xl">
+                <p class="text-lg text-slate-300 leading-relaxed text-center">
+                    I am an aspiring technology professional with a dedicated focus on Artificial Intelligence and Machine Learning. Currently, I am pursuing a Bachelor of Technology at Netaji Subhas University of Technology. My internship at C-DAC, Noida, has provided me with practical experience in the field, allowing me to understand the impact of technology on future developments. I am committed to continuously expanding my knowledge and skills in the ever-evolving domains of AI and ML.
+                </p>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <hr>
-
-    <section id="experience" class="section">
-        <h2 class="section-title">Employment History</h2>
-        <div class="experience-item">
-            <h3>Intern, CDAC, Noida</h3>
-            <p class="date-location">July 2025 – August 2025 | New Delhi, India</p>
-            <ul>
-                <li>Gained practical experience in technology, focusing on Artificial Intelligence and Machine Learning applications.</li>
-                <li>Assisted in the development of AI-based solutions, contributing to ongoing projects.</li>
-                <li>Participated in team discussions and provided input on technical challenges.</li>
-                <li>Conducted research on emerging technologies to support project objectives.</li>
-                <li>Collaborated with mentors and peers to enhance understanding of machine learning concepts.</li>
-            </ul>
-        </div>
-    </section>
-
-    <hr>
-
-    <section id="education" class="section">
-        <h2 class="section-title">Education & Courses</h2>
-        <div class="education-container">
-            <div class="education-item">
-                <h3>Bachelor of Technology - BTech in Artificial Intelligence</h3>
-                <p class="institution">Netaji Subhas University of Technology (NSUT), Delhi</p>
-                <p class="date">Present</p>
+        <!-- Experience Section -->
+        <section id="experience" class="py-24 section">
+            <h2 class="text-3xl font-bold text-center mb-12 text-slate-200">
+                <span class="gradient-text">Professional Experience</span>
+            </h2>
+            <div class="max-w-3xl mx-auto">
+                <div class="relative pl-8 sm:pl-10 py-6 group">
+                    <div class="absolute top-0 left-0 h-full w-0.5 bg-slate-700"></div>
+                    <div class="absolute top-6 left-[-6px] sm:left-[-8px] w-4 h-4 rounded-full bg-sky-500 border-4 border-slate-800 group-hover:scale-125 transition-transform"></div>
+                    <div class="glass-effect p-6 rounded-xl transition-shadow hover:shadow-2xl hover:shadow-sky-500/10">
+                        <p class="text-sm text-slate-400">July 2025 - August 2025</p>
+                        <h3 class="font-bold text-xl mt-1 text-slate-100">Intern</h3>
+                        <p class="font-semibold text-sky-400">C-DAC, Noida, New Delhi</p>
+                        <ul class="mt-4 list-disc list-inside text-slate-300 space-y-2">
+                            <li>Gained practical experience in technology, focusing on Artificial Intelligence and Machine Learning applications.</li>
+                            <li>Assisted in developing AI-based solutions and contributed to ongoing projects.</li>
+                            <li>Participated in team discussions, providing input on technical challenges.</li>
+                            <li>Conducted research on emerging technologies to support project objectives.</li>
+                            <li>Collaborated with mentors to enhance understanding of machine learning concepts.</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-            <div class="education-item">
-                <h3>High School Diploma (89%) & 10th Class (94%)</h3>
-                <p class="institution">CRPF Public School - India</p>
-                <p class="date">Jan 2019 – Nov (Date incomplete in source)</p>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="py-24 section">
+            <h2 class="text-3xl font-bold text-center mb-12 text-slate-200">
+                <span class="gradient-text">Technical Skills</span>
+            </h2>
+            <div class="max-w-5xl mx-auto grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
+                <!-- Skill items will be injected here by JavaScript -->
             </div>
+        </section>
+
+        <!-- Education & Certifications Section -->
+        <section id="education" class="py-24 section">
+            <h2 class="text-3xl font-bold text-center mb-12 text-slate-200">
+                <span class="gradient-text">Education & Certifications</span>
+            </h2>
+            <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-8">
+                <!-- Education -->
+                <div class="space-y-6">
+                    <h3 class="text-2xl font-semibold text-center text-slate-300 mb-4">Education</h3>
+                    <div class="glass-effect p-6 rounded-xl">
+                        <p class="font-bold text-slate-200">Netaji Subhas University of Technology (NSUT), Delhi</p>
+                        <p class="text-sky-400">Bachelor of Technology - B.Tech in Artificial Intelligence</p>
+                        <p class="text-sm text-slate-400">Present</p>
+                    </div>
+                    <div class="glass-effect p-6 rounded-xl">
+                        <p class="font-bold text-slate-200">CRPF Public School - India</p>
+                        <p class="text-sky-400">High School Diploma - 89%</p>
+                        <p class="text-sm text-slate-400">2019 - 2023</p>
+                    </div>
+                </div>
+                <!-- Certifications -->
+                <div class="space-y-6">
+                    <h3 class="text-2xl font-semibold text-center text-slate-300 mb-4">Courses & Achievements</h3>
+                     <div class="glass-effect p-6 rounded-xl">
+                        <p class="font-bold text-slate-200">Complete Generative AI Course</p>
+                        <p class="text-sky-400">By Krish Naik (Langchain & Huggingface)</p>
+                    </div>
+                    <div class="glass-effect p-6 rounded-xl">
+                        <p class="font-bold text-slate-200">Machine Learning Specialization</p>
+                        <p class="text-sky-400">By Andrew Ng (Coursera)</p>
+                    </div>
+                     <div class="glass-effect p-6 rounded-xl">
+                        <p class="font-bold text-slate-200">OGO Orange Science Olympiad</p>
+                        <p class="text-sky-400">Bronze Medalist</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-24 section">
+            <h2 class="text-3xl font-bold text-center mb-4 text-slate-200">
+                Get In Touch
+            </h2>
+            <p class="text-center text-slate-400 mb-12 max-w-2xl mx-auto">
+                I'm always open to discussing new projects, creative ideas, or opportunities to be part of an amazing team. Feel free to reach out to me.
+            </p>
+            <div class="flex flex-wrap justify-center gap-8">
+                <a href="mailto:manandugtal@gmail.com" class="flex items-center gap-3 text-lg glass-effect py-3 px-6 rounded-lg hover:bg-slate-700/80 transition-colors">
+                    <i data-lucide="mail" class="text-sky-400"></i>
+                    <span>manandugtal@gmail.com</span>
+                </a>
+                <a href="tel:8800240806" class="flex items-center gap-3 text-lg glass-effect py-3 px-6 rounded-lg hover:bg-slate-700/80 transition-colors">
+                    <i data-lucide="phone" class="text-sky-400"></i>
+                    <span>8800240806</span>
+                </a>
+                <a href="https://www.linkedin.com" target="_blank" class="flex items-center gap-3 text-lg glass-effect py-3 px-6 rounded-lg hover:bg-slate-700/80 transition-colors">
+                    <i data-lucide="linkedin" class="text-sky-400"></i>
+                    <span>LinkedIn</span>
+                </a>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="border-t border-slate-800 mt-16">
+        <div class="container mx-auto px-6 py-6 text-center text-slate-500">
+            <p>&copy; 2024 Manan Singh Dugtal. All rights reserved.</p>
         </div>
-
-        <h3 class="subsection-title">Completed Courses</h3>
-        <ul class="courses-list">
-            <li>Complete Generative AI Course With Langchain and Huggingface, by Krish Naik</li>
-            <li>Machine Learning Specialization, by Andrew Ng</li>
-        </ul>
-
-        <h3 class="subsection-title">Achievements & Activities</h3>
-        <ul class="achievements-list">
-            <li>OGO Orange Science Olympiad **Bronze Medalist**.</li>
-            <li>Active **volunteering in SIH Hackathon**.</li>
-            <li>Actively participated in Organizing College fest **"Moksha"**.</li>
-        </ul>
-    </section>
-
-    <hr>
-
-    <section id="contact" class="section">
-        <h2 class="section-title">Get In Touch</h2>
-        <p>Use the form below to send me a message directly to my Gmail!</p>
-
-        <form id="contactForm">
-            <input type="text" id="name" name="name" placeholder="Your Name" required>
-            <input type="email" id="email" name="email" placeholder="Your Email" required>
-            <textarea id="message" name="message" placeholder="Your Message" required></textarea>
-            <button type="submit" id="sendButton">Send Message</button>
-            <p id="formStatus"></p>
-        </form>
-    </section>
-
-    <footer>
-        <p>&copy; 2025 Manan Singh Dugtal. All rights reserved.</p>
-        <p>Built with ❤️</p>
     </footer>
 
-    <script src="script.js"></script>
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
 
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when a link is clicked
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Sticky Header on Scroll
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('py-2');
+                header.classList.remove('py-4');
+            } else {
+                header.classList.add('py-4');
+                header.classList.remove('py-2');
+            }
+        });
+
+        // Fade-in animation on scroll
+        const sections = document.querySelectorAll('.section');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    // Optional: stop observing once it's visible
+                    // observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+
+        // Dynamically create skills
+        const skills = [
+            'Machine Learning', 'Artificial Intelligence', 'Generative AI', 
+            'Data Visualization', 'Cybersecurity Basics', 'Technical Problem Solving',
+            'Team Collaboration', 'Communication Skills', 'Research', 'Critical Thinking'
+        ];
+
+        const skillIcons = {
+            'Machine Learning': 'brain-circuit',
+            'Artificial Intelligence': 'cpu',
+            'Generative AI': 'bot',
+            'Data Visualization': 'bar-chart-3',
+            'Cybersecurity Basics': 'shield-check',
+            'Technical Problem Solving': 'wrench',
+            'Team Collaboration': 'users',
+            'Communication Skills': 'message-circle',
+            'Research': 'book-open',
+            'Critical Thinking': 'lightbulb'
+        };
+
+        const skillsContainer = document.querySelector('#skills .grid');
+        skills.forEach(skill => {
+            const icon = skillIcons[skill] || 'star'; // Default icon
+            const skillElement = document.createElement('div');
+            skillElement.className = 'glass-effect p-4 rounded-lg flex flex-col items-center justify-center text-center gap-3 transition-transform transform hover:-translate-y-1 hover:shadow-xl hover:shadow-sky-500/10';
+            skillElement.innerHTML = `
+                <i data-lucide="${icon}" class="w-10 h-10 text-sky-400"></i>
+                <p class="font-semibold text-slate-200">${skill}</p>
+            `;
+            skillsContainer.appendChild(skillElement);
+        });
+        
+        // Re-initialize icons after adding them dynamically
+        lucide.createIcons();
+
+    </script>
 </body>
 </html>
